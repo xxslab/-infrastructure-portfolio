@@ -1,7 +1,7 @@
 # Walentyn W. — Infrastructure, Automation & AI Portfolio
 
 > Selected engineering work presented as architecture and outcomes.  
-> Production source repositories remain private; this repository intentionally contains **no proprietary source code, credentials, customer data, or production configuration**.
+> Production source repositories are kept private by default; this repository intentionally contains **no proprietary source code, credentials, customer data, or production configuration**.
 
 **Focus:** OpenShift / Kubernetes · Linux / RHEL · Automation · Cloud · Observability · AI Infrastructure · Platform Engineering
 
@@ -218,6 +218,43 @@ This project is included to demonstrate breadth, build/release discipline and th
 
 ---
 
+## 7. DoSieci Web Ranker — SEO Visibility Monitoring Platform
+
+A Laravel-based platform for monitoring Google positions and visibility across multiple
+domains. It combines scheduled rank tracking and keyword research with customer reports,
+data-quality safeguards and a controlled single-sign-on connection to the DoSieci hosting
+panel.
+
+**Engineering highlights**
+- Explicit result states — `FOUND`, `OUTSIDE`, `INCONCLUSIVE` and `API_ERROR` — ensure
+  partial SERP responses and provider errors are never presented as ranking declines.
+- Asynchronous DataForSEO SERP processing with durable raw-result and usage-cost records.
+- Keyword visibility and research through DataForSEO Labs, with plan-based limits for
+  tracked phrases, measurement frequency and on-demand runs.
+- Daily or weekly e-mail reports, plus alerts only after a confirmed Top 10 or tracked-range loss.
+- WHMCS one-click sign-on using a single-use signed token; service status controls access and
+  defined retention rules protect customer data after service termination.
+- A network-free test suite built around 271 golden DataForSEO response fixtures, fake provider
+  clients and a test mail transport.
+
+### Architecture
+
+```mermaid
+flowchart LR
+    PORTAL[DoSieci Client Portal / WHMCS] -->|One-time signed SSO| RANKER[Web Ranker]
+    SERVICE[Hosting Service + Plan] --> RANKER
+    RANKER --> ENGINE[Measurement and Research Engine]
+    ENGINE --> SERP[DataForSEO SERP]
+    ENGINE --> LABS[DataForSEO Labs]
+    ENGINE --> LEDGER[Verdicts and Usage Ledger]
+    RANKER --> REPORTS[Reports and Alerts]
+```
+
+**What this demonstrates:** Laravel application architecture, external API integration,
+background processing, data-quality semantics, cost/usage tracking, controlled customer access
+and reporting automation.
+---
+
 # How I approach infrastructure work
 
 ```mermaid
@@ -247,7 +284,7 @@ I am particularly interested in senior roles involving:
 
 ## Source-code policy
 
-The systems described here include commercial and production work. Their full source repositories are intentionally private.
+The systems described here include commercial and production work. Their full source repositories are generally kept private or separately scoped.
 
 This showcase exposes architecture, engineering decisions, technology choices and verified project outcomes without publishing proprietary implementation details, credentials or customer information.
 
