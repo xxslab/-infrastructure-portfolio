@@ -289,7 +289,3 @@ The systems described here include commercial and production work. Their full so
 This showcase exposes architecture, engineering decisions, technology choices and verified project outcomes without publishing proprietary implementation details, credentials or customer information.
 
 ---
-
-**Walentyn Weremejenko**  
-Senior OpenShift / Kubernetes & Linux Infrastructure Engineer  
-Szczecin, Poland · Remote
