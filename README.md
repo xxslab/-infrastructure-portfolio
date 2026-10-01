@@ -1,4 +1,4 @@
-# Walentyn W. — Infrastructure, Automation & AI Portfolio
+# Walentyn Weremejenko — Infrastructure, Automation & AI Portfolio
 
 > Selected engineering work presented as architecture and outcomes.  
 > Production source repositories are kept private by default; this repository intentionally contains **no proprietary source code, credentials, customer data, or production configuration**.
